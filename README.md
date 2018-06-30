@@ -65,6 +65,47 @@ const flipped = flip((x, y) => `${x}, ${y}`);
 
 console.log(flipped(1, 2));
 // "2, 1"
+```
 
 ### `map`
-does  a map thing
+Maps an array to a function
+
+```js
+const times2 = map(x => x * 2);
+
+console.log(times2([1, 2, 3, 4, 5]));
+// [2, 4, 6, 8, 10]
+```
+
+### `foldl`
+Folds (reduces) an array from the left.
+
+```js
+const sum = foldl((acc, x) => acc + x, 0);
+
+console.log(sum([1, 2, 3]));
+
+// 6
+```
+
+### `foldr`
+Folds (reduces) an array from the right. Note that the reducer takes the item first, then the accumulator, then the index. It's like haskell!!!!!
+
+```js
+const div = foldr((x, acc) => x / acc, 1);
+
+console.log(div([1, 2, 3, 4, 5]));
+// 1.875
+// this is equivalent to 1/(2/(3/(4/(5/1)))), not 1/2/3/4/5/1
+```
+
+### `reverse`
+Reverses an array.
+
+```js
+console.log(reverse([1, 2, 3, 4, 5]));
+// [5, 4, 3, 2, 1]
+```
+
+### `listc`
+List comprehensions. Coming soon. Maybe.
