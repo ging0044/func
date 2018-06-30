@@ -1,4 +1,4 @@
-# func
+# some-functional-functions
 some haskell-wannabe functions in JS (typescript)
 
 ## getting started
