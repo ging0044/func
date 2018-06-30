@@ -2,6 +2,7 @@
   "name": "func",
   "version": "0.0.1",
   "description": "some haskell-wannabe functions in JS",
+  "repository": "https://github.com/ging0044/func",
   "main": "func.js",
   "types": "func.d.ts",
   "scripts": {
