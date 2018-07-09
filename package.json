@@ -1,6 +1,6 @@
 {
   "name": "some-functional-functions",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "some haskell-wannabe functions in JS",
   "repository": "https://github.com/ging0044/func",
   "main": "func.js",
