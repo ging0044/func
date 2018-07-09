@@ -7,7 +7,7 @@
   "types": "func.d.ts",
   "scripts": {
     "test": "./node_modules/.bin/jest && npm run build",
-    "build": "./node_modules/.bin/tsc --declaration --outdir . src/*.ts"
+    "build": "./node_modules/.bin/tsc --declaration --outdir . src/func.ts"
   },
   "keywords": [
     "functional",

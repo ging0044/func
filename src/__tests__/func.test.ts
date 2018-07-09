@@ -6,7 +6,8 @@ import {
   map,
   foldl,
   foldr,
-  reverse
+  reverse,
+  cons
 } from "../func";
 
 test("func() makes functions curried", () => {
@@ -77,5 +78,13 @@ test('reverse() reverses a list', () => {
     reverse([1, 2, 3, 4, 5])
   ).toStrictEqual(
     [5, 4, 3, 2, 1]
+  );
+});
+
+test('cons() prepends an item to an array', () => {
+  expect(
+    cons(1, [2, 3, 4, 5])
+  ).toStrictEqual(
+    [1, 2, 3, 4, 5]
   );
 });
