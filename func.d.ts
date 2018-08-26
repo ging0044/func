@@ -1,9 +1,10 @@
 export declare const func: (fn: Function, numArgs?: number) => Function;
 export declare const pipe: (...fns: Function[]) => Function;
 export declare const compose: (...fns: Function[]) => Function;
-export declare const flip: <a, b, c>(fn: (b: b, a: a, ...x: any[]) => c) => (a: a, b: b, ...x: any[]) => c;
+export declare const flip: <A, B, C>(fn: (b: B, a: A, ...x: any[]) => C) => (a: A, b: B, ...x: any[]) => C;
 export declare const map: Function;
 export declare const foldl: Function;
 export declare const foldr: Function;
-export declare const reverse: <a>([x, ...xs]: a[]) => a[];
+export declare const reverse: <A>([x, ...xs]: A[]) => A[];
+export declare const cons: <A>(x: A, xs: A[]) => A[];
 export declare const listc: () => string;

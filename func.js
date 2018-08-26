@@ -7,9 +7,11 @@ exports.func = function (fn, numArgs) {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
+        var _a;
         return args.length >= numArgs
-            ? fn.apply(null, args)
-            : exports.func(Function.prototype.bind.apply(fn, [null].concat(args)), numArgs - args.length);
+            ? Function.prototype.apply.call(fn, null, args)
+            : exports.func((_a = Function.prototype.bind).call.apply(_a, [fn,
+                null].concat(args)), numArgs - args.length);
     };
 };
 exports.pipe = function () {
@@ -61,4 +63,5 @@ exports.reverse = function (_a) {
     return x
         ? exports.reverse(xs).concat([x]) : [];
 };
-exports.listc = function () { return "lots of list comprehension-y stuff"; };
+exports.cons = function (x, xs) { return [x].concat(xs); };
+exports.listc = function () { return "lots of list comprehension-y stuff"; }; // TODO

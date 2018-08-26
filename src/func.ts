@@ -9,13 +9,14 @@
  */
 export const func =
   (fn: Function, numArgs = fn.length): Function =>
-    (...args: any[]): Function =>
+    (...args: any[]): any =>
       args.length >= numArgs
-        ? fn.apply(null, args)
+        ? Function.prototype.apply.call(fn, null, args)
         : func(
-          Function.prototype.bind.apply(
-            fn,
-            [null, ...args]),
+            Function.prototype.bind.call(
+              fn,
+              null,
+              ...args),
             numArgs - args.length);
 
 /**
@@ -58,8 +59,8 @@ export const compose = (...fns: Function[]): Function =>
  * parameters reversed
  */
 export const flip =
-  <a, b, c>(fn: (b: b, a: a, ...x) => c): ((a: a, b: b, ...x) => c) =>
-  (a: a, b: b, ...rest) => fn(b, a, ...rest);
+  <A, B, C>(fn: (b: B, a: A, ...x) => C): ((a: A, b: B, ...x) => C) =>
+  (a: A, b: B, ...rest) => fn(b, a, ...rest);
 
 /**
  * Map a function over an array of values. (You can do some really fun things
@@ -72,7 +73,7 @@ export const flip =
  * @returns {Array<*>} An array of values of the type returned by fn
  */
 export const map =
-  func(<a, b>(fn: (x: a) => b, array: a[]): b[] =>
+  func(<A, B>(fn: (x: A) => B, array: A[]): B[] =>
     Array.prototype.map.call(array, fn));
 
 /**
@@ -87,8 +88,8 @@ export const map =
  * @returns {*} Returns a value of the type returned by fn
  */
 export const foldl =
-  func(<a, b>(fn: (acc: b, i: a) => b, init: b, array: a[]): b[] =>
-    Array.prototype.reduce.call(array, fn, init))
+  func(<A, B>(fn: (acc: B, i: A) => B, init: B, array: A[]): B[] =>
+    Array.prototype.reduce.call(array, fn, init));
 
 /**
  * Fold (reduce) an iterable from the right. Words like Haskell's foldr,
@@ -102,7 +103,7 @@ export const foldl =
  * @returns {*} Returns a value of the type returned by fn
  */
 export const foldr =
-  func(<a, b>(fn: (i:a, acc:b) => b, init: b, array: a[]): b[] =>
+  func(<A, B>(fn: (i:A, acc:B) => B, init: B, array: A[]): B[] =>
     Array.prototype.reduceRight.call(array, flip(fn), init));
 
 /**
@@ -111,9 +112,11 @@ export const foldr =
  * @param {Array<*>} array The array to reverse
  * @returns {Array<*>} The reversed array
  */
-export const reverse = <a>([x, ...xs]: a[]): a[] =>
+export const reverse = <A>([x, ...xs]: A[]): A[] =>
   x
   ? [...reverse(xs), x]
   : [];
+
+export const cons = <A>(x: A, xs: A[]): A[] => [x, ...xs];
 
 export const listc = () => "lots of list comprehension-y stuff"; // TODO
