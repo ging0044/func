@@ -17,6 +17,8 @@ log("Wooa")("aaahh")("!");
 
 ## the functions
 
+See [here](https://ging0044.github.io/some-functional-functions/) for more up-to-date documentation.
+
 ### `func`
 Makes a function curried. Pretty cool stuff.
 
