@@ -117,6 +117,14 @@ export const reverse = <A>([x, ...xs]: A[]): A[] =>
   ? [...reverse(xs), x]
   : [];
 
+/**
+ * Append a value onto an array
+ *
+ * @param {*} x The value to append
+ * @param {Array<*>} xs The array to which the value should be appended
+ * @returns {Array<*>} A new array consisting of the original with the value
+ * added to the front
+ */
 export const cons = <A>(x: A, xs: A[]): A[] => [x, ...xs];
 
 export const listc = () => "lots of list comprehension-y stuff"; // TODO
