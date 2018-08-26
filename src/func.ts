@@ -66,6 +66,8 @@ export const flip =
  * Map a function over an array of values. (You can do some really fun things
  * with this if you pass in a curried function)
  *
+ * @function
+ *
  * @param {Function} fn The function to map over the array. The function must
  * accept a value of the same type as the array contains.
  * @param {Array<*>} array The array of values. All values must be of the same
@@ -79,6 +81,8 @@ export const map =
 /**
  * Fold (reduce) an iterable from the left. Words like Haskell's foldl,
  * obviously.
+ *
+ * @function
  *
  * @param {Function} fn The function with which to fold the iterable. Should
  * accept an accumulator of the same type as is returned, and an item from the
@@ -94,6 +98,8 @@ export const foldl =
 /**
  * Fold (reduce) an iterable from the right. Words like Haskell's foldr,
  * obviously.
+ *
+ * @function
  *
  * @param {Function} fn The function with which to fold the iterable. Should
  * accept an item form the iterable, and an accumulator of the same type as is
